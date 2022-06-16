@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'quotes/new', to: 'quotes#new'
   resources :quotes
   resources :quotes do
-    resources :line_item_dates, except: [:index, :show]
-    resources :line_items, except: [:index, :show]
+    resources :line_item_dates, except: [:index, :show] do
+      resources :line_items, except: [:index, :show]
+    end
   end
   
 end
